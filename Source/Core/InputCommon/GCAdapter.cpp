@@ -119,7 +119,7 @@ static void Write()
         s_controller_rumble[3],
     };
     const int err =
-        libusb_interrupt_transfer(s_handle, s_endpoint_out, payload, sizeof(payload), &size, 16);
+        libusb_interrupt_transfer(s_handle, s_endpoint_out, payload, sizeof(payload), &size, 0);
     if (err != 0)
       ERROR_LOG_FMT(CONTROLLERINTERFACE, "adapter libusb write failed: err={}",
                     libusb_error_name(err));
